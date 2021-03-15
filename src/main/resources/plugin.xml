@@ -26,6 +26,14 @@
                  menubarPath="tool/astah-plugin-tutorial-kotlin/"
                  id="astah-plugin-tutorial-kotlin2">
          </action>
+         <action
+                 label="%count_classes_menu_label"
+                 icon="icons/sample.gif"
+                 class="com.example.astah.CountClassesAction"
+                 tooltip="%menu_tooltip"
+                 menubarPath="tool/astah-plugin-tutorial-kotlin/"
+                 id="astah-plugin-tutorial-kotlin3">
+         </action>
      </actionSet>
    </extension>
 </plugin>
