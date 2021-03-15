@@ -7,6 +7,7 @@
 		<plugin.install>true</plugin.install>
 		<astah.version>6.7</astah.version>
 		<astah.edition>all</astah.edition>
+		<kotlin.version>1.4.31</kotlin.version>
 	</properties>
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.example.astah</groupId>
@@ -126,8 +127,6 @@
 		</plugins>
 	</reporting>
 	<build>
-		<sourceDirectory>src/main/java</sourceDirectory>
-		<testSourceDirectory>src/test/java</testSourceDirectory>
 		<outputDirectory>target/classes</outputDirectory>
 		<testOutputDirectory>target/test-classes</testOutputDirectory>
 		<resources>
@@ -160,15 +159,6 @@
 				</executions>
 			</plugin>
 			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<version>2.3.2</version>
-				<configuration>
-					<encoding>UTF-8</encoding>
-					<source>1.8</source>
-					<target>1.8</target>
-				</configuration>
-			</plugin>
-			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-resources-plugin</artifactId>
 				<version>2.5</version>
@@ -182,9 +172,42 @@
 				<version>1.0.0</version>
 			</plugin>
 			<plugin>
+				<groupId>org.jetbrains.kotlin</groupId>
+				<artifactId>kotlin-maven-plugin</artifactId>
+				<version>${kotlin.version}</version>
+				<executions>
+					<execution>
+						<id>compile</id>
+						<phase>compile</phase>
+						<goals>
+							<goal>compile</goal>
+						</goals>
+					</execution>
+					<execution>
+						<id>test-compile</id>
+						<phase>test-compile</phase>
+						<goals>
+							<goal>test-compile</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<jvmTarget>1.8</jvmTarget>
+				</configuration>
+			</plugin>
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<version>3.8.1</version>
+				<configuration>
+					<encoding>UTF-8</encoding>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<plugin>
 				<groupId>org.apache.felix</groupId>
 				<artifactId>maven-bundle-plugin</artifactId>
-				<version>3.3.0</version>
+				<version>3.5.0</version>
 				<extensions>true</extensions>
 				<executions>
 					<execution>
@@ -195,14 +218,14 @@
 						</goals>
 					</execution>
 				</executions>
-				<!-- | the following instructions build a simple set of public/private 
+				<!-- | the following instructions build a simple set of public/private
 					classes into an OSGi bundle -->
 				<configuration>
 					<unpackBundle>true</unpackBundle>
 					<instructions>
 						<Bundle-SymbolicName>${bundle.symbolicName}; singleton:=true</Bundle-SymbolicName>
 						<Bundle-Version>${project.version}</Bundle-Version>
-						<!-- | assume public classes are in the top package, and private classes 
+						<!-- | assume public classes are in the top package, and private classes
 							are under ".internal" -->
 						<Export-Package>!${bundle.namespace}.internal.*,${bundle.namespace}.*;version="${project.version}"</Export-Package>
 						<Private-Package>${bundle.namespace}.internal.*</Private-Package>
@@ -276,6 +299,17 @@
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>4.10</version>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.jetbrains.kotlin</groupId>
+			<artifactId>kotlin-stdlib-jdk8</artifactId>
+			<version>${kotlin.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.jetbrains.kotlin</groupId>
+			<artifactId>kotlin-test</artifactId>
+			<version>${kotlin.version}</version>
 			<scope>test</scope>
 		</dependency>
 	</dependencies>
