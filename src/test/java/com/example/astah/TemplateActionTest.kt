@@ -1,17 +1,10 @@
-package com.example.astah;
+package com.example.astah
 
-import static org.junit.Assert.*;
+import org.junit.Test
 
-import org.junit.Test;
-
-
-public class TemplateActionTest {
-	
-	@Test
-	public void testname() throws Exception {
-		
-	}
-
+class TemplateActionTest {
+    @Test
+    @Throws(Exception::class)
+    fun testname() {
+    }
 }
-
-
