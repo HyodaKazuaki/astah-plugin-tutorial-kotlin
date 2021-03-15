@@ -11,12 +11,20 @@
                path="tool/astah-plugin-tutorial-kotlin">
          </menu>
          <action
-			   label="%menu_label"
-               icon="icons/sample.gif"
-               class="com.example.astah.TemplateAction"
-               tooltip="%menu_tooltip"
-               menubarPath="tool/astah-plugin-tutorial-kotlin/"
-               id="astah-plugin-tutorial-kotlin">
+                 label="%menu_label"
+                 icon="icons/sample.gif"
+                 class="com.example.astah.TemplateAction"
+                 tooltip="%menu_tooltip"
+                 menubarPath="tool/astah-plugin-tutorial-kotlin/"
+                 id="astah-plugin-tutorial-kotlin">
+         </action>
+         <action
+                 label="%menu_label2"
+                 icon="icons/sample.gif"
+                 class="com.example.astah.HelloWorldAction"
+                 tooltip="%menu_tooltip"
+                 menubarPath="tool/astah-plugin-tutorial-kotlin/"
+                 id="astah-plugin-tutorial-kotlin2">
          </action>
      </actionSet>
    </extension>
