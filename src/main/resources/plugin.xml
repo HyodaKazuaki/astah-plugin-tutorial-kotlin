@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin>
+   <extension point="com.change_vision.astah.ui.actionSets">
+      <actionSet
+            label="%action_set_label"
+            visible="true"
+            id="com.example.astah.astah-plugin-tutorial-kotlin.actionSet">
+         <menu
+               id="astah-plugin-tutorial-kotlin"
+               label="%menu_group"
+               path="tool/astah-plugin-tutorial-kotlin">
+         </menu>
+         <action
+			   label="%menu_label"
+               icon="icons/sample.gif"
+               class="com.example.astah.TemplateAction"
+               tooltip="%menu_tooltip"
+               menubarPath="tool/astah-plugin-tutorial-kotlin/"
+               id="astah-plugin-tutorial-kotlin">
+         </action>
+     </actionSet>
+   </extension>
+</plugin>
